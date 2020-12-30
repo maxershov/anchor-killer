@@ -1,10 +1,24 @@
 <!doctype html>
 <html>
-  <head>
-    <title>Anchors Killer</title>
-    <script src="popup.js"></script>
-  </head>
-  <body>
-    <button id="start">KILL ANCHORS</button>
-  </body>
+<style>
+  .btn {
+    box-shadow: 0 6px 5px -1px gray;
+    border-radius: 5px;
+    border: none;
+    background-color: white;
+  }
+</style>
+
+<head>
+  <title>Anchors Killer</title>
+  <script src="popup.js"></script>
+</head>
+
+<body>
+  <button class="btn" id="start">KILL ANCHORS</button>
+  <input type='checkbox' id="checkbox" checked>
+
+  <button class="btn" id="stop">Stop</button>
+</body>
+
 </html>
