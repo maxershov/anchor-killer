@@ -1,8 +1,11 @@
 <!doctype html>
 <html>
 <style>
+  .wrapper {
+    text-align: center;
+  }
   .widget {
-    width: 250px;
+    width: 150px;
     padding: 15px 0;
   }
 
@@ -60,6 +63,11 @@
   .toggle__real:checked~.toggle__title {
     font-weight: 500;
   }
+
+
+  #link {
+    text-decoration: none;
+  }
 </style>
 
 <head>
@@ -68,12 +76,17 @@
 </head>
 
 <body>
-  <div class="widget">
-    <label class="toggle">
-      <input type="checkbox" id="checkbox" class="toggle__real" name="commission">
-      <span class="toggle__fake"></span>
-      <span class="toggle__title">Kill Anchors</span>
-    </label>
+  <div class="wrapper">
+    <div class="widget">
+      <label class="toggle">
+        <input type="checkbox" id="checkbox" class="toggle__real" name="commission">
+        <span class="toggle__fake"></span>
+        <span class="toggle__title">Kill <b>&#60;a href&#62;</b></span>
+      </label>
+    </div>
+    <div class="link__wrapper">
+      <a id="link" href="https://www.maksershov.ru">author</a>
+    </div>
   </div>
 </body>
 

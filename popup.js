@@ -36,6 +36,11 @@ document.addEventListener('DOMContentLoaded', function () {
             fixLinks();
         }
     });
+
+    var myLink = document.getElementById('link');
+    myLink.addEventListener('click', function (e) {
+        chrome.tabs.create({ url: e.target.href })
+    });
 });
 
 

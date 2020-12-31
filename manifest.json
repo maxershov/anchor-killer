@@ -1,7 +1,7 @@
 {
     "manifest_version": 2,
     "name": "Anchor Killer",
-    "description": "This extension clear href so you can't accidentally click and go to other page",
+    "description": "This extension clear href so you can't accidentally click and go to the other page",
     "version": "1.0",
       "browser_action": {
         "default_popup": "popup.html"
