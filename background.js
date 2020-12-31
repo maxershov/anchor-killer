@@ -6,7 +6,12 @@ chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
 });
 
 
-// save state from popup 
+// check or save state from popup 
 chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
-    state = request.payload;
-})
+    if (request.payload !== "check") {
+        state = request.payload;
+    } else {
+        sendResponse({ payload: state });
+        return true;
+    }
+});

@@ -1,11 +1,64 @@
 <!doctype html>
 <html>
 <style>
-  .btn {
-    box-shadow: 0 6px 5px -1px gray;
-    border-radius: 5px;
-    border: none;
-    background-color: white;
+  .widget {
+    width: 250px;
+    padding: 15px 0;
+  }
+
+  .toggle {
+    cursor: pointer;
+  }
+
+  .toggle__real {
+    width: 1px;
+    height: 1px;
+    position: absolute;
+    opacity: 0;
+    appearance: none;
+  }
+
+  .toggle__fake {
+    vertical-align: bottom;
+    margin-right: 10px;
+    position: relative;
+    display: inline-block;
+    width: 37px;
+    height: 20px;
+    background: #C4C4C4;
+    border-radius: 10px;
+  }
+
+  .toggle__fake::before {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    content: "";
+    width: 16px;
+    height: 16px;
+    background: #ffffff;
+    border-radius: 50%;
+    transition: all 0.2s ease-in;
+  }
+
+  .toggle__real:checked+.toggle__fake {
+    background: #6d82f8f8;
+  }
+
+  .toggle__real:checked+.toggle__fake::before {
+    left: 19px;
+  }
+
+  .toggle__title {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.18;
+    color: rgb(65, 65, 65);
+  }
+
+  .toggle__real:checked~.toggle__title {
+    font-weight: 500;
   }
 </style>
 
@@ -15,10 +68,13 @@
 </head>
 
 <body>
-  <button class="btn" id="start">KILL ANCHORS</button>
-  <input type='checkbox' id="checkbox" checked>
-
-  <button class="btn" id="stop">Stop</button>
+  <div class="widget">
+    <label class="toggle">
+      <input type="checkbox" id="checkbox" class="toggle__real" name="commission">
+      <span class="toggle__fake"></span>
+      <span class="toggle__title">Kill Anchors</span>
+    </label>
+  </div>
 </body>
 
 </html>
