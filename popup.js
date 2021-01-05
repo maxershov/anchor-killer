@@ -1,20 +1,13 @@
 var checkboxState = false;
 
 
-chrome.runtime.sendMessage({
-    payload: "check"
-}, function (response) {
-
-    checkboxState = response.payload;
-
-    var checkbox = document.getElementById('checkbox');
-    checkbox.checked = checkboxState;
-});
-
-
-
 document.addEventListener('DOMContentLoaded', function () {
     var checkbox = document.getElementById('checkbox');
+
+    // enable on click on icon
+    chrome.runtime.sendMessage({ payload: true });
+    checkbox.checked = true;
+
 
     checkbox.addEventListener('change', function (e) {
 
@@ -28,6 +21,8 @@ document.addEventListener('DOMContentLoaded', function () {
         window.close()
     });
 
+
+    // open new tab for my page
     var myLink = document.getElementById('link');
     myLink.addEventListener('click', function (e) {
         chrome.tabs.create({ url: e.target.href })

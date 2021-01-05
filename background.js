@@ -13,42 +13,45 @@ chrome.tabs.onUpdated.addListener(function (tabId) {
 function enableHref() {
 
     chrome.tabs.executeScript(null, { file: "fix.js" });
-    chrome.browserAction.setIcon({path: {
-        "16": "img/icon16.png",
-        "32": "img/icon32.png",
-        "48": "img/icon48.png",
-        "128": "img/icon128.png"
-    }});
+    chrome.browserAction.setIcon({
+        path: {
+            "16": "img/icon16.png",
+            "32": "img/icon32.png",
+            "48": "img/icon48.png",
+            "128": "img/icon128.png"
+        }
+    });
 }
 
 
 function disableHref() {
 
     chrome.tabs.executeScript(null, { file: "script.js" });
-    
-    chrome.browserAction.setIcon({path: {
-        "16": "img/iconActive16.png",
-        "32": "img/iconActive32.png",
-        "48": "img/iconActive48.png",
-        "128": "img/iconActive128.png"
-    }});
+
+    chrome.browserAction.setIcon({
+        path: {
+            "16": "img/iconActive16.png",
+            "32": "img/iconActive32.png",
+            "48": "img/iconActive48.png",
+            "128": "img/iconActive128.png"
+        }
+    });
 }
 
 
-// check or save state from popup 
-chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
+chrome.browserAction.onClicked.addListener(function () {
+    disableHref();
+});
 
-    if (request.payload !== "check") {
-        state = request.payload;
 
-        if (state) {
-            disableHref();
-        } else {
-            enableHref();
-        }
+// save state from popup and call func
+chrome.runtime.onMessage.addListener(function (request) {
 
+    state = request.payload;
+
+    if (state) {
+        disableHref();
     } else {
-        sendResponse({ payload: state });
-        return true;
+        enableHref();
     }
 });
