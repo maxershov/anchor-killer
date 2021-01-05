@@ -44,6 +44,11 @@ chrome.browserAction.onClicked.addListener(function () {
 });
 
 
+// disable ext after tab close
+chrome.tabs.onRemoved.addListener(function (tabid, removed) {
+    enableHref();
+})
+
 // save state from popup and call func
 chrome.runtime.onMessage.addListener(function (request) {
 
