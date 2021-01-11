@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "name": "Href Disabler",
   "description": "This extension change href to “javaScript:void(0)”, so you can't accidentally click and go to the other page",
-  "version": "1.0",
+  "version": "2.0",
   "browser_action": {
     "default_popup": "popup.html"
   },
