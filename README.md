@@ -4,6 +4,8 @@
 
 ## Now you can't accidentally click and go to the other page and get useless traffic stats in page metric
 
+### <a href="https://chrome.google.com/webstore/detail/href-disabler/licnkpjchgpppjcmicphbkdjafinboie">Chrome Webstore Link</a>
+
 ### Features:
 
 - Disable `href` in links with `javaScript:void(0)`
